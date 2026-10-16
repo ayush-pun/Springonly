@@ -6,6 +6,9 @@
            http://www.springframework.org/schema/beans
            https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="alien" class="org.ayushcontinue.Alien" scope="prototype"/>
+    <bean id="alien" class="org.ayushcontinue.Alien">
+        <!--here we are injecting the default value of the age through this property you can do this for the primitive value -->
+        <property name="age" value="22"></property>
+    </bean>
 
 </beans>
