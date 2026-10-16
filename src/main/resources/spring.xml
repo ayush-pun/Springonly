@@ -7,8 +7,8 @@
            https://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="alien" class="org.ayushcontinue.Alien">
-        <!--this is how we do the setter injection for the ref varaible -->
-        <property name="lap" ref="lap1"></property>
+        <constructor-arg value="21"/>
+        <constructor-arg ref="lap1"/>
     </bean>
 
     <bean id="lap1" class="org.ayushcontinue.Laptop">
