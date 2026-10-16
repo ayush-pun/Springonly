@@ -7,8 +7,12 @@
            https://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="alien" class="org.ayushcontinue.Alien">
-        <!--here we are injecting the default value of the age through this property you can do this for the primitive value -->
-        <property name="age" value="22"></property>
+        <!--this is how we do the setter injection for the ref varaible -->
+        <property name="lap" ref="lap1"></property>
+    </bean>
+
+    <bean id="lap1" class="org.ayushcontinue.Laptop">
+
     </bean>
 
 </beans>
