@@ -6,12 +6,12 @@
            http://www.springframework.org/schema/beans
            https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!-- value="21": Injects the age value (primitive) into the constructor.
-         ref="lap1": Injects the reference to the Laptop bean.-->
+    <!-- Type Attribute: When arguments are of different types, the type attribute can
+         be used to specify the exact type of the argument.-->
 
     <bean id="alien" class="org.ayushcontinue.Alien">
-        <constructor-arg value="21"/>
-        <constructor-arg ref="lap1"/>
+        <constructor-arg type="org.ayushcontinue.Laptop" ref="lap1"/>
+        <constructor-arg type="int" value="21"/>
     </bean>
 
     <bean id="lap1" class="org.ayushcontinue.Laptop">
