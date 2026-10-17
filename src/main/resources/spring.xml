@@ -6,6 +6,9 @@
            http://www.springframework.org/schema/beans
            https://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!-- value="21": Injects the age value (primitive) into the constructor.
+         ref="lap1": Injects the reference to the Laptop bean.-->
+
     <bean id="alien" class="org.ayushcontinue.Alien">
         <constructor-arg value="21"/>
         <constructor-arg ref="lap1"/>
