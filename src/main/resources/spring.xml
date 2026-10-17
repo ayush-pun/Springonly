@@ -6,16 +6,15 @@
            http://www.springframework.org/schema/beans
            https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!-- Index Attribute: In some cases, the constructor parameters may be of the
-         same type. The index attribute specifies the 0-based index of the argument-->
-
-    <bean id="alien" class="org.ayushcontinue.Alien">
-        <constructor-arg  index="1" ref="lap1"/>
-        <constructor-arg  index="0" value="21"/>
+        <!-- this is an example of using the autowire to do the injection with setter and here we have used the "byName" property-->
+    <bean id="alien" class="org.ayushcontinue.Alien" autowire="byName">
+        <property name="age" value="21"/>
     </bean>
+    <!--autowire="byName" tells Spring to look for a bean whose ID matches the property name. Since
+    the property is called comp and the bean ID is also comp, Spring injects the Laptop into Alien.-->
 
-    <bean id="lap1" class="org.ayushcontinue.Laptop">
+    <bean id="lap1" class="org.ayushcontinue.Laptop"/>
+    <bean id="comp" class="org.ayushcontinue.Desktop"/>
 
-    </bean>
 
 </beans>

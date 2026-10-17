@@ -3,21 +3,27 @@ package org.ayushcontinue;
 public class Alien {
 
     private int age;
-    private Laptop lap;
+    private Computer comp;
 
-    public Alien(){
-        System.out.println("alien object created ...");
+    public int getAge() {
+        return age;
     }
 
-    public Alien(int age, Laptop lap) {
-        System.out.println("parameterized constructor called......");
+    public void setAge(int age) {
         this.age = age;
-        this.lap = lap;
+    }
+
+    public Computer getComp() {
+        return comp;
+    }
+
+    public void setComp(Computer comp) {
+        this.comp = comp;
     }
 
     public void code(){
         System.out.println("coding...");
         System.out.println("age : "+age);
-        lap.compile();
+        comp.compile();
     }
 }

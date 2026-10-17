@@ -1,12 +1,9 @@
 package org.ayushcontinue;
 
-public class Laptop {
+public class Laptop implements Computer{
 
-    public Laptop(){
-        System.out.println("laptop object created....");
-    }
-
-    public void compile(){
-        System.out.println("compiling.....");
+    @Override
+    public void compile() {
+        System.out.println("Compiling in laptop.....");
     }
 }
