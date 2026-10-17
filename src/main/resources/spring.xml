@@ -6,23 +6,18 @@
            http://www.springframework.org/schema/beans
            https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-        <!-- this is an example of using the autowire to do the injection with setter and here we have used the "byName" property-->
+    <!--byType, Spring ignores the bean ID when choosing a dependency. Instead, it looks for a bean whose class is compatible with the property's type.-->
 
-    <!--Spring injects the Laptop bean, because the explicitly configured ref="lap1" takes precedence over the automatic wiring for that property.
-        This is useful when you want autowiring for most dependencies but need to choose a particular bean for one property.-->
-
-    <bean id="alien" class="org.ayushcontinue.Alien" autowire="byName">
+    <bean id="alien" class="org.ayushcontinue.Alien" autowire="byType">
         <property name="age" value="21"/>
-        <property name="comp" ref="lap1"/>
+
     </bean>
-    <!--autowire="byName" tells Spring to look for a bean whose ID matches the property name. Since
-    the property is called comp and the bean ID is also comp, Spring injects the Laptop into Alien.-->
 
-
-
+<!--Both Laptop and Desktop implement Computer. Therefore, both are candidates for the comp property.
+Spring cannot determine which one you want based on type alone, so it normally throws a NoUniqueBeanDefinitionException when it tries to resolve the dependency.-->
 
     <bean id="lap1" class="org.ayushcontinue.Laptop"/>
-    <bean id="comp" class="org.ayushcontinue.Desktop"/>
+    <bean id="desk" class="org.ayushcontinue.Desktop"/>
 
 
 </beans>
