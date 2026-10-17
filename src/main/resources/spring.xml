@@ -13,11 +13,9 @@
 
     </bean>
 
-<!--Both Laptop and Desktop implement Computer. Therefore, both are candidates for the comp property.
-Spring cannot determine which one you want based on type alone, so it normally throws a NoUniqueBeanDefinitionException when it tries to resolve the dependency.-->
 
     <bean id="lap1" class="org.ayushcontinue.Laptop"/>
-    <bean id="desk" class="org.ayushcontinue.Desktop"/>
+
 
 
 </beans>
