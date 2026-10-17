@@ -7,11 +7,19 @@
            https://www.springframework.org/schema/beans/spring-beans.xsd">
 
         <!-- this is an example of using the autowire to do the injection with setter and here we have used the "byName" property-->
+
+    <!--Spring injects the Laptop bean, because the explicitly configured ref="lap1" takes precedence over the automatic wiring for that property.
+        This is useful when you want autowiring for most dependencies but need to choose a particular bean for one property.-->
+
     <bean id="alien" class="org.ayushcontinue.Alien" autowire="byName">
         <property name="age" value="21"/>
+        <property name="comp" ref="lap1"/>
     </bean>
     <!--autowire="byName" tells Spring to look for a bean whose ID matches the property name. Since
     the property is called comp and the bean ID is also comp, Spring injects the Laptop into Alien.-->
+
+
+
 
     <bean id="lap1" class="org.ayushcontinue.Laptop"/>
     <bean id="comp" class="org.ayushcontinue.Desktop"/>
