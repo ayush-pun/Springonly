@@ -6,6 +6,7 @@ instead of traditional xml configuration */
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
 
 import java.util.AbstractList;
@@ -17,7 +18,7 @@ public class AppConfig {
     //we can use @Qualifier for explicit reference like we use the ref attribut in property
     //in the xml config
     @Bean
-    public Alien alien(@Qualifier("desktop") Computer comp){
+    public Alien alien(Computer comp){
         Alien obj = new Alien();
         obj.setAge(25);
         obj.setComp(comp);
@@ -30,6 +31,8 @@ public class AppConfig {
     }
 
     @Bean
+    //we can also use the @Primary annotation for giving the preference
+    @Primary
     public Laptop laptop(){
         return new Laptop();
     }
