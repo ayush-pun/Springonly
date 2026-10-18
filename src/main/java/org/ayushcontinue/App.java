@@ -9,21 +9,7 @@ public class App
     public static void main( String[] args )
     {
        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-       Desktop dt = context.getBean("desktop",Desktop.class);
-       Desktop dt1 = context.getBean("desktop", Desktop.class);
-       //this will prints true since the object is same as its scope is singleton
-       System.out.println(dt == dt1);
-
-       Desktop dt2 = context.getBean("desktop1",Desktop.class);
-       Desktop dt3 = context.getBean("desktop1", Desktop.class);
-        //this will prints false is the object is different each time it is created as its scope is prototype
-       System.out.println(dt2 == dt3);
+       Alien obj =  context.getBean(Alien.class);
+        obj.code();
     }
 }
-/*the output is :
-Desktop object is created.....
-true
-Desktop object is created.....
-Desktop object is created.....
-false
-*/
