@@ -7,23 +7,23 @@
            https://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
+    <!--In Spring, inner beans are beans defined inside another bean. This is useful when
+    the inner bean is intended to be used only within the outer bean and doesn't need to
+    be shared elsewhere.
+    Inner beans are generally used when the object is private to the outer bean and is
+    not reused anywhere else in the application context.-->
+
     <bean id="alien" class="org.ayushcontinue.Alien" autowire="byName">
         <property name="age" value="21"/>
-        <property name="comp" ref="comp2"/>
+
+        <property name="comp">
+        <bean class="org.ayushcontinue.Laptop" primary="true"/>
+        </property>
 
     </bean>
-    <!--If an eagerly initialized bean depends on a lazy
-    initialized bean, the lazy bean will be created when the
-    eager bean is created. This ensures that all required
-    dependencies are available when the eager bean is
-    constructed. -->
 
-    <!--here what we are doing is the bean alien is dependent on the bean comp2 but the
-    comp2 bean is lazy intialized but it still generated during the contianer is created
-    because the alien bean is a eager bean -->
 
-    <bean id="comp1" class="org.ayushcontinue.Laptop" primary="true"/>
-    <bean id="comp2" class="org.ayushcontinue.Desktop" lazy-init="true"/>
+    <!--<bean id="comp2" class="org.ayushcontinue.Desktop" lazy-init="true"/>-->
 
 
 
