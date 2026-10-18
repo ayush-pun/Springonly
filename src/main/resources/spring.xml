@@ -7,13 +7,21 @@
            https://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="alien" class="org.ayushcontinue.Alien" autowire="byType">
+    <bean id="alien" class="org.ayushcontinue.Alien" autowire="byName">
         <property name="age" value="21"/>
+        <property name="comp" ref="comp2"/>
 
     </bean>
-    <!--now talking about the eager and the lazy intialization here when the both the bean comp1 and comp2 are created
-    during the spring container is created even though we are just wanted the comp1 aka laptop bean so we can make the
-    comp2 aka the desktop object lazy instatiaed by make using the property lazy-init -->
+    <!--If an eagerly initialized bean depends on a lazy
+    initialized bean, the lazy bean will be created when the
+    eager bean is created. This ensures that all required
+    dependencies are available when the eager bean is
+    constructed. -->
+
+    <!--here what we are doing is the bean alien is dependent on the bean comp2 but the
+    comp2 bean is lazy intialized but it still generated during the contianer is created
+    because the alien bean is a eager bean -->
+
     <bean id="comp1" class="org.ayushcontinue.Laptop" primary="true"/>
     <bean id="comp2" class="org.ayushcontinue.Desktop" lazy-init="true"/>
 
