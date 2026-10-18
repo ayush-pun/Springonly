@@ -6,15 +6,17 @@
            http://www.springframework.org/schema/beans
            https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!--byType, Spring ignores the bean ID when choosing a dependency. Instead, it looks for a bean whose class is compatible with the property's type.-->
 
     <bean id="alien" class="org.ayushcontinue.Alien" autowire="byType">
         <property name="age" value="21"/>
 
     </bean>
 
-
-    <bean id="lap1" class="org.ayushcontinue.Laptop"/>
+<!--here there are two bean of type computer are there and the autowire is done with by type now the
+spring is confused which object to create so it will throw the error but this can be resolved with the
+help of the primary attribute here it will pass the Desktop bean as it is specified primary-->
+    <bean id="comp1" class="org.ayushcontinue.Laptop" />
+    <bean id="comp2" class="org.ayushcontinue.Desktop" primary="true"/>
 
 
 
