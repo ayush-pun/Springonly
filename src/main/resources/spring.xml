@@ -11,12 +11,11 @@
         <property name="age" value="21"/>
 
     </bean>
-
-<!--here there are two bean of type computer are there and the autowire is done with by type now the
-spring is confused which object to create so it will throw the error but this can be resolved with the
-help of the primary attribute here it will pass the Desktop bean as it is specified primary-->
-    <bean id="comp1" class="org.ayushcontinue.Laptop" />
-    <bean id="comp2" class="org.ayushcontinue.Desktop" primary="true"/>
+    <!--now talking about the eager and the lazy intialization here when the both the bean comp1 and comp2 are created
+    during the spring container is created even though we are just wanted the comp1 aka laptop bean so we can make the
+    comp2 aka the desktop object lazy instatiaed by make using the property lazy-init -->
+    <bean id="comp1" class="org.ayushcontinue.Laptop" primary="true"/>
+    <bean id="comp2" class="org.ayushcontinue.Desktop" lazy-init="true"/>
 
 
 
