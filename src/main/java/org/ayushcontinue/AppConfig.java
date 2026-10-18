@@ -18,4 +18,17 @@ public class AppConfig {
         return new Desktop();
     }
 
+    /* this is an way to change the name of the bean form the default and you can also have multiple names*/
+
+    @Bean(name = {"comp2","desktop1","beast"})
+    public Desktop desktop1(){
+        return new Desktop();
+    }
+
+    /*● @Configuration: Marks the class as a source of bean definitions.
+      ● @Bean: Defines a bean, and the method name (desktop) becomes the bean
+        name by default.
+      ● AnnotationConfigApplicationContext: Initializes the Spring context with
+        the provided configuration class. */
+
 }
