@@ -9,6 +9,12 @@ public class Alien {
     private int age;
     private Computer comp;
 
+    //this is an example of the constructor injection
+    @Autowired
+    public Alien(Computer comp) {
+        this.comp = comp;
+    }
+
     public int getAge() {
         return age;
     }
@@ -21,8 +27,6 @@ public class Alien {
         return comp;
     }
 
-    @Autowired
-    //here we have done the setter injection the object is injected by the spring
     public void setComp(Computer comp) {
         this.comp = comp;
     }
