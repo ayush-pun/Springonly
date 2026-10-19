@@ -1,39 +1,17 @@
 package org.ayushcontinue;
 
-/*this is java based configuration in spring allow us to configure beans using java classes
-instead of traditional xml configuration */
-
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Scope;
 
-import java.util.AbstractList;
-
-//this annotation is used to make sure this class is a configuration class
+//here we have made use of the stereotype annotation the @configuration annotation declares that this class is a configu
+//ation file.
 @Configuration
-public class AppConfig {
 
-    //we can use @Qualifier for explicit reference like we use the ref attribut in property
-    //in the xml config
-    @Bean
-    public Alien alien(Computer comp){
-        Alien obj = new Alien();
-        obj.setAge(25);
-        obj.setComp(comp);
-        return obj;
-    }
+//@ComponentScan is another annotation which make sure that spring scans for the component classes which is important for
+//bean creation and the "org.ayushcontinues" make sure it scans through this folder for the @component throught out the files
+@ComponentScan("org.ayushcontinue")
+public class AppConfig{
 
-    @Bean
-    public Desktop desktop(){
-        return new Desktop();
-    }
-
-    @Bean
-    //we can also use the @Primary annotation for giving the preference
-    @Primary
-    public Laptop laptop(){
-        return new Laptop();
-    }
 }
+
+

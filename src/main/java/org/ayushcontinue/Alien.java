@@ -1,5 +1,9 @@
 package org.ayushcontinue;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class Alien {
 
     private int age;
@@ -17,6 +21,8 @@ public class Alien {
         return comp;
     }
 
+    @Autowired
+    //here we have done the setter injection the object is injected by the spring
     public void setComp(Computer comp) {
         this.comp = comp;
     }
