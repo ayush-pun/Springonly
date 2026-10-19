@@ -1,11 +1,14 @@
 package org.ayushcontinue;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Alien {
 
+    //this annotation is used to make set the value of varaible
+    @Value("28")
     private int age;
     private Computer comp;
 
